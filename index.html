@@ -1,27 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daily Rabbit Swap</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-    }
-    iframe {
-      width: 100vw;
-      height: 100vh;
-      border: none;
-    }
-  </style>
-</head>
-<body>
-  <iframe 
-    src="https://station.jup.ag/swap?defaultInputMint=So11111111111111111111111111111111111111112&defaultOutputMint=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v&referralAccount=D5PfCHwrL1ng4iFufDfVbT7wWMZhEoB74Hc6HaemzMmi"
-    allow="clipboard-read; clipboard-write"
-    allowfullscreen>
-  </iframe>
-</body>
-</html>
+<!-- Attach the loading script in your <head /> -->
+<script src='https://plugin.jup.ag/plugin-v1.js'></script>
+
+<!-- Prepare a div in your <body> for Plugin to render -->
+<!-- Adjust the width and height to suit your requirements -->
+<div id="target-container" style="width: 400px; height: 568px;"></div>
+window.Jupiter.init({
+  displayMode: "integrated",
+  integratedTargetId: "target-container",
+  defaultExplorer: "Solscan",
+  formProps: {
+    referralAccount: "D5PfCHwrL1ng4iFufDfVbT7wWMZhEoB74Hc6HaemzMmi",
+  },
+});
