@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Rabbit - Solana Swap</title>
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      background: linear-gradient(135deg, #0A0E27, #1A1F3A, #2C3E50);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      color: white;
+    }
+    
+    .header h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    
+    .header p {
+      font-size: 16px;
+      opacity: 0.8;
+    }
+    
+    .container {
+      max-width: 450px;
+      width: 100%;
+      background: rgba(30, 39, 73, 0.9);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    }
+    
+    #jupiter-terminal {
+      min-height: 550px;
+    }
+    
+    .footer {
+      margin-top: 30px;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 14px;
+    }
+    
+    .footer a {
+      color: #4A90E2;
+      text-decoration: none;
+    }
+    
+    .footer a:hover {
+      text-decoration: underline;
+    }
+    
+    @media (max-width: 600px) {
+      .header h1 {
+        font-size: 24px;
+      }
+      .container {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="header">
+    <h1>🐰 Daily Rabbit Swap</h1>
+    <p>Best rates on Solana, powered by Jupiter</p>
+  </div>
+  
+  <div class="container">
+    <div id="jupiter-terminal"></div>
+  </div>
+  
+  <div class="footer">
+    <p>Powered by <a href="https://jup.ag" target="_blank">Jupiter Aggregator</a></p>
+    <p style="margin-top: 5px;">Daily Rabbit Confirmation © 2026</p>
+  </div>
+
+  <!-- Jupiter Terminal Script -->
+  <script src="https://terminal.jup.ag/main-v2.js"></script>
+  <script>
+    window.Jupiter.init({
+      displayMode: "integrated",
+      integratedTargetId: "jupiter-terminal",
+      endpoint: "https://api.mainnet-beta.solana.com",
+      
+      // Default tokens: SOL → USDC
+      defaultInputMint: "So11111111111111111111111111111111111111112",
+      defaultOutputMint: "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+      
+      // Your referral account
+      platformFeeAndAccounts: {
+        accounts: [
+          {
+            pubkey: "D5PfCHwrL1ng4iFufDfVbT7wWMZhEoB74Hc6HaemzMmi",
+            feeBps: 50
+          }
+        ]
+      },
+      
+      // UI customization
+      formProps: {
+        fixedInputMint: false,
+        fixedOutputMint: false,
+        initialSlippageBps: 50
+      },
+      
+      containerStyles: {
+        maxWidth: "100%"
+      }
+    });
+  </script>
+  
+</body>
+</html>
